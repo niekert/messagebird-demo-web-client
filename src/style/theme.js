@@ -5,13 +5,23 @@ function computeGoldenRatio(exp) {
 
 export default {
   bg: {
-    main: '#F5F5F5',
+    body: 'linear-gradient(180deg,#e5f0fa 0,#f5faff)',
+    main: '#f2f9ff',
     card: '#FFFFFF',
+    cta: '#3f90dc',
   },
   color: {
+    main: '#4a5669',
+    secondary: 'rgba(64,94,139,0.5)',
+    outline: '#eaf0fa',
+    cta: '#FFF',
     active: '#4688F1',
-    main: '#333',
     sub: '#444',
+  },
+  fs: {
+    label: '15px',
+    body: '14px',
+    h1: '24px',
   },
   spacing: {
     0: `${computeGoldenRatio(0)}px`,

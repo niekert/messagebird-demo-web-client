@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { prop } from 'styled-tools';
 
 export const IconButton = styled.button`
   padding: 0;

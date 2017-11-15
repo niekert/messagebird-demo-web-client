@@ -19,6 +19,14 @@ export const lighten = memoize(
   memoizeResolver,
 );
 
+export const saturate = memoize(
+  (color, saturateValue) =>
+    Color(color)
+      .saturate(saturateValue)
+      .hex(),
+  memoizeResolver,
+);
+
 export const alpha = memoize(
   (color, alphaValue) =>
     Color(color)
