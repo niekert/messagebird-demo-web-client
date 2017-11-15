@@ -19,9 +19,9 @@ class SendMessageForm extends React.Component {
   };
 
   state = {
-    recipient: '',
-    originator: '',
-    body: '',
+    recipient: '+31634322664',
+    originator: 'Niek',
+    body: 'Prefilled bericht test bla ',
   };
 
   handleInputChange = e => {

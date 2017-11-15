@@ -2,6 +2,7 @@ import React from 'react';
 import { ContentWrapper } from 'style/Layout';
 import { ContentCard } from 'style/Cards';
 import SendMessageForm from 'scenes/SendMessageForm';
+import MessagesList from 'scenes/MessagesList';
 import styled from 'styled-components';
 
 const Content = styled.div`
@@ -19,7 +20,7 @@ const App = () => (
       <SendMessageForm />
     </Sidebar>
     <Content>
-      <ContentCard>Here will be the sent / received texts.</ContentCard>
+      <MessagesList />
     </Content>
   </ContentWrapper>
 );

@@ -1,4 +1,5 @@
 import * as messagesApi from 'api/messages';
+import { addMessage } from 'scenes/MessagesList/actions';
 
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const SEND_MESSAGE_ERROR = 'SEND_MESSAGE_ERROR';
@@ -22,10 +23,12 @@ export function sendMessage(recipient, originator, body) {
         body,
       );
 
-      console.log('message is ', message);
+      dispatch(addMessage(message));
+
+      dispatch({
+        type: SEND_MESSAGE_SUCCESS,
+      });
     } catch (error) {
-      window.error = error;
-      console.log('error', error);
       dispatch({
         type: SEND_MESSAGE_ERROR,
         payload: {

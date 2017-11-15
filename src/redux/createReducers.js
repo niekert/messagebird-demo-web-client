@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import dataReducer from 'data/reducer';
+import sendMessageReducer from 'scenes/SendMessageForm/reducer';
+import messagesListReducer from 'scenes/MessagesList/reducer';
 
 export default function createReducers() {
   return combineReducers({
-    data: dataReducer,
+    sendMessage: sendMessageReducer,
+    messagesList: messagesListReducer,
   });
 }
