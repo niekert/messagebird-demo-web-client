@@ -1,8 +1,17 @@
 import React from 'react';
 import { func } from 'prop-types';
 import { H1 } from 'style/Headers';
-import { Form, Input, TextArea, SubmitButton } from 'style/Form';
+import { Form, Input, TextArea, SubmitButton, PhoneInput } from 'style/Form';
 import { ContentCard } from 'style/Cards';
+
+/**
+ * Super crappy way of formatting a phone number to a normal string
+ * Should be done in a decent way in a real app
+ * @param {String} number - The phone number to format
+ */
+function formatPhoneNumber(phoneNumber) {
+  return phoneNumber.replace(/\s/g, '').replace('+', '00');
+}
 
 class SendMessageForm extends React.Component {
   static propTypes = {
@@ -22,12 +31,20 @@ class SendMessageForm extends React.Component {
     });
   };
 
+  handleChange = phoneNumber => {
+    this.setState({
+      recipient: phoneNumber,
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const { recipient, originator, body } = this.state;
+    const formattedRecipient = formatPhoneNumber(recipient);
 
-    // TODO: Maybe some additional validations
-    this.props.sendMessage(recipient, originator, body);
+    // TODO: Could do some additional validation before calling the action
+
+    this.props.sendMessage(formattedRecipient, originator, body);
   };
 
   render() {
@@ -37,11 +54,10 @@ class SendMessageForm extends React.Component {
       <ContentCard>
         <H1>Send a message</H1>
         <Form onSubmit={this.handleSubmit}>
-          <Input
-            placeholder="Recipient"
+          <PhoneInput
             name="recipient"
-            required
-            onChange={this.handleInputChange}
+            defaultCountry="nl"
+            onChange={this.handleChange}
             value={recipient}
           />
           <Input

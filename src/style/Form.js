@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import ReactPhoneInput from 'react-telephone-input/lib/withStyles';
 import { prop } from 'styled-tools';
 import { saturate } from 'shared/util/colors';
 
@@ -43,4 +44,25 @@ export const SubmitButton = styled(Button).attrs({
   type: 'submit',
 })`
   align-self: flex-start;
+`;
+
+// We need to jump a lot of hoops to get this component to be styled properly 😔
+export const PhoneInput = Input.withComponent(ReactPhoneInput).extend`
+  padding-left: 0;
+  width: auto !important;
+
+  & > .flag-dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  & .selected-flag {
+    height: 100%;
+  }
+
+  & > input {
+    border: none !important;
+    box-shadow: none !important;
+    height: 100% !important;
+  }
 `;
