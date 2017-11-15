@@ -24,7 +24,13 @@ export const TextArea = Input.withComponent('textarea').extend`
   min-height: 150px;
 `;
 
+export const ErrorLabel = styled.span`
+  font-size: ${prop('theme.fs.small')};
+  color: ${prop('theme.color.error')};
+`;
+
 export const Button = styled.button`
+  position: relative;
   height: 40px;
   border-radius: 4px;
   border: none;

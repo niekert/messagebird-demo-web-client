@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { prop } from 'styled-tools';
 
 export const ContentCard = styled.div`
+  position: relative;
+  overflow: hidden;
   padding: ${prop('theme.spacing.3')};
   background: ${prop('theme.bg.card')};
   border-radius: 5px;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { arrayOf, shape } from 'prop-types';
 import { H1 } from 'style/Headers';
+import Spinner from 'shared/components/Spinner';
 import Message from './Message';
 
 const MessagesList = ({ messages }) => (
@@ -9,6 +10,7 @@ const MessagesList = ({ messages }) => (
     {messages.map(message => (
       <Message key={`message-list-${message.id}`} {...message} />
     ))}
+    <Spinner />
   </div>
 );
 

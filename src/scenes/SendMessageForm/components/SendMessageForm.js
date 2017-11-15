@@ -1,8 +1,13 @@
 import React from 'react';
-import { func } from 'prop-types';
+import { func, instanceOf } from 'prop-types';
+import { OK, ERROR, PENDING } from 'app-constants';
+import { status as statusPropType } from 'customPropTypes';
 import { H1 } from 'style/Headers';
+import LoadingButton from 'shared/components/LoadingButton';
 import { Form, Input, TextArea, SubmitButton, PhoneInput } from 'style/Form';
 import { ContentCard } from 'style/Cards';
+import SuccessBanner from './SuccessBanner';
+import ErrorBanner from './ErrorBanner';
 
 /**
  * Super crappy way of formatting a phone number to a normal string
@@ -15,7 +20,13 @@ function formatPhoneNumber(phoneNumber) {
 
 class SendMessageForm extends React.Component {
   static propTypes = {
+    status: statusPropType.isRequired,
+    error: instanceOf(Error),
     sendMessage: func.isRequired,
+  };
+
+  static defaultProps = {
+    error: null,
   };
 
   state = {
@@ -23,6 +34,17 @@ class SendMessageForm extends React.Component {
     originator: 'Niek',
     body: 'Prefilled bericht test bla ',
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.status === OK && this.props.status !== OK) {
+      // Reset the form if all is GOOD
+      this.setState({
+        recipient: '',
+        originator: '',
+        body: '',
+      });
+    }
+  }
 
   handleInputChange = e => {
     const { name, value } = e.target;
@@ -48,10 +70,15 @@ class SendMessageForm extends React.Component {
   };
 
   render() {
+    const { status, error } = this.props;
     const { recipient, originator, body } = this.state;
 
+    /* TODO: show error in a normal way */
     return (
       <ContentCard>
+        {status === OK && <SuccessBanner />}
+        {status === ERROR &&
+          !!error && <ErrorBanner message={error.toString()} />}
         <H1>Send a message</H1>
         <Form onSubmit={this.handleSubmit}>
           <PhoneInput
@@ -74,7 +101,12 @@ class SendMessageForm extends React.Component {
             value={body}
             onChange={this.handleInputChange}
           />
-          <SubmitButton>Send message</SubmitButton>
+          <LoadingButton
+            component={SubmitButton}
+            isLoading={status === PENDING}
+          >
+            Send message
+          </LoadingButton>
         </Form>
       </ContentCard>
     );
