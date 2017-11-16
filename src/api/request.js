@@ -1,15 +1,26 @@
 import ApiError from 'models/ApiError';
-
-const API_URL_BASE = process.env.REACT_APP_API_URL_BASE;
+import { API_KEY_STORAGE_KEY, API_URL_BASE } from 'app-constants';
 
 export default function request(path, requestOptions) {
-  return fetch(`${API_URL_BASE}${path}`, requestOptions)
-    .then(resp =>
-      resp.json().then(data => ({
+  const apiKey = localStorage.getItem(API_KEY_STORAGE_KEY);
+  const headers = new Headers(requestOptions.headers);
+
+  // headers.append('Accept', 'application/json');
+  if (apiKey) {
+    headers.append('Authorization', `AccessKey ${apiKey}`);
+  }
+
+  return fetch(`${API_URL_BASE}${path}`, { ...requestOptions, headers })
+    .then(resp => {
+      if (resp.status === 401) {
+        throw new Error('Unauthorized request');
+      }
+
+      return resp.json().then(data => ({
         status: resp.status,
         data,
-      })),
-    )
+      }));
+    })
     .then(({ status, data }) => {
       if (data.errors && data.errors.length) {
         throw new ApiError(data.errors, status);

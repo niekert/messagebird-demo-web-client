@@ -12,7 +12,7 @@ const SuccessBanner = () => (
   <Banner>
     <EmojiWrapper>
       <span role="img" aria-label="success">
-        😎
+        🕊
       </span>
     </EmojiWrapper>
     Your message was sent successfully

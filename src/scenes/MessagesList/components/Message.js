@@ -1,13 +1,30 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { ContentCard } from 'style/Cards';
+import { string, number, oneOf } from 'prop-types';
+import styled from 'styled-components';
 
-function Message() {
-  return <div>MEssage</div>;
+const StyledCard = styled(ContentCard)`
+  display: flex;
+  align-items: center;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+function Message({ id, direction, recipient, body, originator }) {
+  return (
+    <StyledCard>
+      <span>{direction}</span>
+      <p>{body}</p>
+    </StyledCard>
+  );
 }
 
 Message.propTypes = {
   id: string.isRequired,
-  recipient: string.isRequired,
+  direction: oneOf(['mt', 'mo']).isRequired,
+  recipient: number.isRequired,
   body: string.isRequired,
   originator: string.isRequired,
 };

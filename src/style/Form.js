@@ -11,6 +11,7 @@ export const Form = styled.form`
 export const Input = styled.input`
   border-radius: 2px;
   border: 1px solid ${prop('theme.color.outline')};
+  font-family: inherit;
   font-size: 16px;
   height: 40px;
   padding: 0 2px 0 10px;
@@ -18,6 +19,7 @@ export const Input = styled.input`
 `;
 
 export const TextArea = Input.withComponent('textarea').extend`
+  font-family: inherit;
   border-width: 2px;
   padding: 10px 10px 20px 10px;
   min-width: 250px;
@@ -67,6 +69,8 @@ export const PhoneInput = Input.withComponent(ReactPhoneInput).extend`
   }
 
   & > input {
+    font-family: inherit !important;
+    font-size: 16px !important;
     border: none !important;
     box-shadow: none !important;
     height: 100% !important;

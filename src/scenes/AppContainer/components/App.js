@@ -1,6 +1,5 @@
 import React from 'react';
-import { ContentWrapper } from 'style/Layout';
-import { ContentCard } from 'style/Cards';
+import { ContentWrapper, NormalPage } from 'style/Layout';
 import SendMessageForm from 'scenes/SendMessageForm';
 import MessagesList from 'scenes/MessagesList';
 import styled from 'styled-components';
@@ -16,12 +15,14 @@ const Sidebar = styled.div`
 
 const App = () => (
   <ContentWrapper>
-    <Sidebar>
-      <SendMessageForm />
-    </Sidebar>
-    <Content>
-      <MessagesList />
-    </Content>
+    <NormalPage>
+      <Sidebar>
+        <SendMessageForm />
+      </Sidebar>
+      <Content>
+        <MessagesList />
+      </Content>
+    </NormalPage>
   </ContentWrapper>
 );
 

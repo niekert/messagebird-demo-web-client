@@ -73,42 +73,43 @@ class SendMessageForm extends React.Component {
     const { status, error } = this.props;
     const { recipient, originator, body } = this.state;
 
-    /* TODO: show error in a normal way */
     return (
-      <ContentCard>
-        {status === OK && <SuccessBanner />}
-        {status === ERROR &&
-          !!error && <ErrorBanner message={error.toString()} />}
+      <div>
         <H1>Send a message</H1>
-        <Form onSubmit={this.handleSubmit}>
-          <PhoneInput
-            name="recipient"
-            defaultCountry="nl"
-            onChange={this.handleChange}
-            value={recipient}
-          />
-          <Input
-            placeholder="Originator"
-            name="originator"
-            required
-            onChange={this.handleInputChange}
-            value={originator}
-          />
-          <TextArea
-            placeholder="Body"
-            name="body"
-            required
-            value={body}
-            onChange={this.handleInputChange}
-          />
-          <LoadingButton
-            component={SubmitButton}
-            isLoading={status === PENDING}
-          >
-            Send message
-          </LoadingButton>
-        </Form>
-      </ContentCard>
+        <ContentCard>
+          {status === OK && <SuccessBanner />}
+          {status === ERROR &&
+            !!error && <ErrorBanner message={error.toString()} />}
+          <Form onSubmit={this.handleSubmit}>
+            <PhoneInput
+              name="recipient"
+              defaultCountry="nl"
+              onChange={this.handleChange}
+              value={recipient}
+            />
+            <Input
+              placeholder="Originator"
+              name="originator"
+              required
+              onChange={this.handleInputChange}
+              value={originator}
+            />
+            <TextArea
+              placeholder="Body"
+              name="body"
+              required
+              value={body}
+              onChange={this.handleInputChange}
+            />
+            <LoadingButton
+              component={SubmitButton}
+              isLoading={status === PENDING}
+            >
+              Send message
+            </LoadingButton>
+          </Form>
+        </ContentCard>
+      </div>
     );
   }
 }
