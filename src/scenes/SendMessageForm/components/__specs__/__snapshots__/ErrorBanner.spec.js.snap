@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ErrorBanner /> renders correctly 1`] = `
+<Banner
+  className={null}
+  durationMs={3000}
+  type="ERROR"
+>
+  <ErrorBanner__EmojiWrapper>
+    <span
+      aria-label="success"
+      role="img"
+    >
+      😔
+    </span>
+  </ErrorBanner__EmojiWrapper>
+  Krakaka
+</Banner>
+`;

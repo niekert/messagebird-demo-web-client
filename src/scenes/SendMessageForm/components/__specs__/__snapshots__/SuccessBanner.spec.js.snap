@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SuccessBanner /> renders correctly 1`] = `
+<Banner
+  className={null}
+  durationMs={3000}
+  type="OK"
+>
+  <SuccessBanner__EmojiWrapper>
+    <span
+      aria-label="success"
+      role="img"
+    >
+      🕊
+    </span>
+  </SuccessBanner__EmojiWrapper>
+  Your message was sent successfully
+</Banner>
+`;

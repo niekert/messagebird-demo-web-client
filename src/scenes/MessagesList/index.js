@@ -26,14 +26,15 @@ class MessageListContainer extends React.Component {
   }
 
   onWebsocketMessage = messageJson => {
-    console.log('received message', messageJson);
     const { type, data } = JSON.parse(messageJson);
     if (type === 'message') {
       this.props.addMessage(data);
     }
 
     if (type === 'connect') {
-      console.log('websocket connected');
+      // TODO: We could keep some state to display in the UI
+      // That we're connected to the websocket
+      console.log("websocket connected"); // eslint-disable-line
     }
   };
 

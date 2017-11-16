@@ -35,24 +35,24 @@ const Wrapper = styled.div`
 
 const Slide = styled(CSSTransition).attrs({
   classNames: 'slide',
-  timeout: 150,
+  timeout: 200,
 })`
-  transition: transform 150ms cubic-bezier(0.2, 1.35, 0.68, 1);
+  transition: transform 200ms cubic-bezier(0.2, 1.35, 0.68, 1);
 
   &.slide-appear {
     opacity: 0;
-    transform: translateY(-100%);
+    transform: translate3d(0, -100%, 0);
   }
   &.slide-appear-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 
   &.slide-exit {
     transform: translateY(0);
   }
   &.slide-exit-active {
-    transform: translateY(-100%);
+    transform: translate3d(0, -100%, 0);
   }
 `;
 
@@ -65,7 +65,7 @@ class Banner extends React.Component {
   };
 
   static defaultProps = {
-    durationMs: 5000,
+    durationMs: 3000,
     className: null,
     type: OK,
     children: null,

@@ -9,12 +9,13 @@ import { prop } from 'styled-tools';
 const StyledCard = styled(ContentCard)`
   display: flex;
   align-items: center;
+  height: 110px;
 `;
 
 const IconWrapper = styled.div`
   width: 24px;
   height: 24px;
-  margin-right: ${prop('theme.spacing.2')};
+  margin-right: ${prop('theme.spacing.1')};
 `;
 
 const Content = styled.div`
@@ -39,22 +40,14 @@ const Time = styled(TimeAgo)`
   opacity: 0.8;
 `;
 
-function Message({
-  id,
-  direction,
-  recipient,
-  body,
-  originator,
-  createdDatetime,
-}) {
+function Message({ direction, recipient, body, originator, createdDatetime }) {
   const isSent = direction === 'mt';
 
-  window.created = createdDatetime;
   return (
     <StyledCard>
       <IconWrapper>{isSent ? <SentIcon /> : <ReceivedIcon />}</IconWrapper>
       <Content>
-        <Label>{isSent ? `to ${recipient}` : `from ${originator}`}</Label>
+        <Label>{isSent ? `To ${recipient}` : `From ${originator}`}</Label>
         <Body>{body}</Body>
       </Content>
       <Time>{createdDatetime}</Time>
@@ -63,7 +56,6 @@ function Message({
 }
 
 Message.propTypes = {
-  id: string.isRequired,
   direction: oneOf(['mt', 'mo']).isRequired,
   recipient: number.isRequired,
   body: string.isRequired,

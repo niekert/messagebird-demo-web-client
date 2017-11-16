@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MessagesList /> renders correctly 1`] = `
+<MessagesList__Wrapper>
+  <Headers__H1>
+    Messages
+  </Headers__H1>
+  <TransitionGroup
+    childFactory={[Function]}
+    component="div"
+  >
+    <SlideIn
+      key="message-list-a13be82534544a508c8b37ccc672eb40"
+    >
+      <Message
+        body="Emoji support test 🐊"
+        createdDatetime="2017-11-17T11:26:44+00:00"
+        direction="mo"
+        id="a13be82534544a508c8b37ccc672eb40"
+        originator="31634322664"
+        recipient={447860039373}
+      />
+    </SlideIn>
+  </TransitionGroup>
+</MessagesList__Wrapper>
+`;

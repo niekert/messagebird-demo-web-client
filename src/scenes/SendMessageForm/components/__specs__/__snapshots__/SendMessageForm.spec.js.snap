@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SendMessageForm /> renders correctly 1`] = `
+<SendMessageForm__Wrapper>
+  <Headers__H1>
+    Send a message
+  </Headers__H1>
+  <Cards__ContentCard>
+    <Form
+      onSubmit={[Function]}
+    >
+      <Form__Input
+        defaultCountry="nl"
+        name="recipient"
+        onChange={[Function]}
+        value=""
+      />
+      <Form__Input
+        name="body"
+        onChange={[Function]}
+        placeholder="Body"
+        required={true}
+        value=""
+      />
+      <LoadingButton
+        component={[Function]}
+        isLoading={false}
+      >
+        Send message
+      </LoadingButton>
+    </Form>
+  </Cards__ContentCard>
+</SendMessageForm__Wrapper>
+`;

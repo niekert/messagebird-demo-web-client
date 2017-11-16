@@ -28,15 +28,15 @@ const Ball = styled.div`
   height: 100%;
   background: transparent;
   border-width: 2px;
-  border: 1px solid currentColor;
+  border: ${prop('lineWidth')}px solid currentColor;
   border-bottom-color: transparent;
   border-radius: 100%;
   animation: ${rotate} 0.75s linear infinite;
 `;
 
-const Spinner = ({ width, height, className }) => (
+const Spinner = ({ width, height, className, lineWidth }) => (
   <Wrapper width={width} height={height} className={className}>
-    <Ball />
+    <Ball lineWidth={lineWidth} />
   </Wrapper>
 );
 
@@ -44,12 +44,14 @@ Spinner.propTypes = {
   className: string,
   width: number,
   height: number,
+  lineWidth: number,
 };
 
 Spinner.defaultProps = {
   className: null,
   width: 32,
   height: 32,
+  lineWidth: 1,
 };
 
 export default Spinner;

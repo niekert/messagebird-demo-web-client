@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Message /> renders correctly 1`] = `
+<Message__StyledCard>
+  <Message__IconWrapper>
+    <SentIcon
+      fill="currentColor"
+    />
+  </Message__IconWrapper>
+  <Message__Content>
+    <Message__Label>
+      To 30201
+    </Message__Label>
+    <Message__Body>
+      test message
+    </Message__Body>
+  </Message__Content>
+  <Message__Time>
+    mock-date-time
+  </Message__Time>
+</Message__StyledCard>
+`;

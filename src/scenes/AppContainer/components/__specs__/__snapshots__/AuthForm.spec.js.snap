@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AuthForm /> renders correctly 1`] = `
+<Layout__ContentWrapper>
+  <AuthForm__StyledForm
+    onSubmit={[Function]}
+  >
+    <Headers__H1>
+      Enter the API key to gain access
+    </Headers__H1>
+    <Form__Input
+      onChange={[Function]}
+      placeholder="It's in the mail I sent you if you're supposed to be here 👀"
+      type="text"
+      value=""
+    />
+    <Form__SubmitButton>
+      Submit
+    </Form__SubmitButton>
+  </AuthForm__StyledForm>
+</Layout__ContentWrapper>
+`;

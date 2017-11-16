@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sendMessageReducer SEND_MESSAGE 1`] = `
+Object {
+  "error": null,
+  "status": "PENDING",
+}
+`;
+
+exports[`sendMessageReducer SEND_MESSAGE_ERROR 1`] = `
+Object {
+  "error": [Error: something went wrong],
+  "status": "ERROR",
+}
+`;
+
+exports[`sendMessageReducer SEND_MESSAGE_SUCCESS 1`] = `
+Object {
+  "error": null,
+  "status": "OK",
+}
+`;

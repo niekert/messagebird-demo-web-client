@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import createStore from 'redux/createStore';
 import './index.css';
 import App from './scenes/AppContainer';
-import registerServiceWorker from './registerServiceWorker';
 
 const store = createStore();
 
@@ -29,5 +28,3 @@ if (module.hot) {
     render(App);
   });
 }
-
-registerServiceWorker();

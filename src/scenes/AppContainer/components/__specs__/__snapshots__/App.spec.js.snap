@@ -2,7 +2,13 @@
 
 exports[`<App /> renders correctly 1`] = `
 <Layout__ContentWrapper>
-  <Connect(SearchForm) />
-  <Connect(Map) />
+  <Layout__NormalPage>
+    <App__Sidebar>
+      <Connect(SendMessageForm) />
+    </App__Sidebar>
+    <App__Content>
+      <Connect(MessageListContainer) />
+    </App__Content>
+  </Layout__NormalPage>
 </Layout__ContentWrapper>
 `;

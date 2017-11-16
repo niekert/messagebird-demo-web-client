@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`messagesListReducer FETCH_MESSAGES_LIST 1`] = `
+Object {
+  "error": null,
+  "messages": Array [],
+  "nextUrl": null,
+  "status": "PENDING",
+}
+`;
+
+exports[`messagesListReducer FETCH_MESSAGES_LIST_SUCCESS 1`] = `
+Object {
+  "error": null,
+  "messages": "mock_messages",
+  "nextUrl": "next_url",
+  "status": "OK",
+}
+`;

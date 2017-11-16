@@ -2,9 +2,11 @@ import React from 'react';
 import { func, instanceOf } from 'prop-types';
 import { OK, ERROR, PENDING } from 'app-constants';
 import { status as statusPropType } from 'customPropTypes';
+import styled from 'styled-components';
 import { H1 } from 'style/Headers';
+import { smallUp } from 'style/breakpoints';
 import LoadingButton from 'shared/components/LoadingButton';
-import { Form, Input, TextArea, SubmitButton, PhoneInput } from 'style/Form';
+import { Form, TextArea, SubmitButton, PhoneInput } from 'style/Form';
 import { ContentCard } from 'style/Cards';
 import SuccessBanner from './SuccessBanner';
 import ErrorBanner from './ErrorBanner';
@@ -18,6 +20,13 @@ function formatPhoneNumber(phoneNumber) {
   return phoneNumber.replace(/\s/g, '').replace('+', '00');
 }
 
+const Wrapper = styled.div`
+  ${smallUp`
+    position: sticky;
+    top: 50px;
+  `};
+`;
+
 class SendMessageForm extends React.Component {
   static propTypes = {
     status: statusPropType.isRequired,
@@ -30,8 +39,8 @@ class SendMessageForm extends React.Component {
   };
 
   state = {
-    recipient: '+31634322664',
-    body: 'Prefilled bericht test bla ',
+    recipient: '',
+    body: '',
   };
 
   componentWillReceiveProps(nextProps) {
@@ -72,7 +81,7 @@ class SendMessageForm extends React.Component {
     const { recipient, body } = this.state;
 
     return (
-      <div>
+      <Wrapper>
         <H1>Send a message</H1>
         <ContentCard>
           {status === OK && <SuccessBanner />}
@@ -100,7 +109,7 @@ class SendMessageForm extends React.Component {
             </LoadingButton>
           </Form>
         </ContentCard>
-      </div>
+      </Wrapper>
     );
   }
 }

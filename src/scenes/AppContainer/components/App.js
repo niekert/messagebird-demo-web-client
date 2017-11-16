@@ -1,16 +1,24 @@
 import React from 'react';
 import { ContentWrapper, NormalPage } from 'style/Layout';
+import { smallUp } from 'style/breakpoints';
 import SendMessageForm from 'scenes/SendMessageForm';
 import MessagesList from 'scenes/MessagesList';
 import styled from 'styled-components';
 
 const Content = styled.div`
   flex: 1;
-  margin-left: 30px;
+
+  ${smallUp`
+    margin-left: 30px;
+  `};
 `;
 
 const Sidebar = styled.div`
-  min-width: 300px;
+  width: 100%;
+
+  ${smallUp`
+    max-width: 300px;
+  `};
 `;
 
 const App = () => (

@@ -12,9 +12,11 @@ import {
   AUTHENTICATE_ERROR,
 } from './actions';
 
+const storedKey = localStorage.getItem(API_KEY_STORAGE_KEY);
+
 const initialState = {
-  apiKey: localStorage.getItem(API_KEY_STORAGE_KEY),
-  isAuthenticated: false,
+  apiKey: storedKey,
+  isAuthenticated: !!storedKey, // By default we assume a user is authenticated if a key is in store
   status: INITIAL,
 };
 

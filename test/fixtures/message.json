@@ -1,0 +1,30 @@
+{
+  "id": "a13be82534544a508c8b37ccc672eb40",
+  "href":
+    "https://rest.messagebird.com/messages/a13be82534544a508c8b37ccc672eb40",
+  "direction": "mo",
+  "type": "sms",
+  "originator": "31634322664",
+  "body": "Emoji support test 🐊",
+  "reference": "13689015",
+  "validity": null,
+  "gateway": 0,
+  "typeDetails": {},
+  "datacoding": "plain",
+  "mclass": 1,
+  "scheduledDatetime": null,
+  "createdDatetime": "2017-11-17T11:26:44+00:00",
+  "recipients": {
+    "totalCount": 1,
+    "totalSentCount": 1,
+    "totalDeliveredCount": 1,
+    "totalDeliveryFailedCount": 0,
+    "items": [
+      {
+        "recipient": 447860039373,
+        "status": "delivered",
+        "statusDatetime": null
+      }
+    ]
+  }
+}
