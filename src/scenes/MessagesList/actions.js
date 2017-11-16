@@ -1,4 +1,5 @@
 import * as messagesApi from 'api/messages';
+import formatMessage from 'shared/util/formatMessage';
 
 export const FETCH_MESSAGES_LIST = 'FETCH_MESSAGES_LIST';
 export const FETCH_MESSAGES_LIST_SUCCESS = 'FETCH_MESSAGES_LIST_SUCCESS';
@@ -31,7 +32,7 @@ export function fetchMessages() {
       dispatch({
         type: FETCH_MESSAGES_LIST_SUCCESS,
         payload: {
-          messages: formatMessages(response.items),
+          messages: response.items.map(formatMessage),
           nextUrl: response.links.next,
         },
       });

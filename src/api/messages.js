@@ -7,13 +7,13 @@ import request from './request';
  * @param {String} Body - Body of the text
  * @returns {Promise} Promise including the API response
  */
-export function sendMessage(recipients, originator, body) {
+export function sendMessage(recipients, body) {
   return request('/messagebird/messages', {
     method: 'POST',
     body: JSON.stringify({
       recipients,
-      originator: MESSAGE_ORIGINATOR,
       body,
+      originator: MESSAGE_ORIGINATOR,
     }),
   });
 }

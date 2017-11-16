@@ -31,7 +31,6 @@ class SendMessageForm extends React.Component {
 
   state = {
     recipient: '+31634322664',
-    originator: 'Niek',
     body: 'Prefilled bericht test bla ',
   };
 
@@ -40,7 +39,6 @@ class SendMessageForm extends React.Component {
       // Reset the form if all is GOOD
       this.setState({
         recipient: '',
-        originator: '',
         body: '',
       });
     }
@@ -61,17 +59,17 @@ class SendMessageForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const { recipient, originator, body } = this.state;
+    const { recipient, body } = this.state;
     const formattedRecipient = formatPhoneNumber(recipient);
 
     // TODO: Could do some additional validation before calling the action
 
-    this.props.sendMessage(formattedRecipient, originator, body);
+    this.props.sendMessage(formattedRecipient, body);
   };
 
   render() {
     const { status, error } = this.props;
-    const { recipient, originator, body } = this.state;
+    const { recipient, body } = this.state;
 
     return (
       <div>
@@ -86,13 +84,6 @@ class SendMessageForm extends React.Component {
               defaultCountry="nl"
               onChange={this.handleChange}
               value={recipient}
-            />
-            <Input
-              placeholder="Originator"
-              name="originator"
-              required
-              onChange={this.handleInputChange}
-              value={originator}
             />
             <TextArea
               placeholder="Body"
