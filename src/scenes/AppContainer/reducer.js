@@ -14,7 +14,7 @@ import {
 
 const initialState = {
   apiKey: localStorage.getItem(API_KEY_STORAGE_KEY),
-  isAuthenticated: true,
+  isAuthenticated: false,
   status: INITIAL,
 };
 
@@ -39,7 +39,7 @@ export default createReducer(initialState, {
     return {
       ...state,
       status: ERROR,
-      isAuthenticated: true,
+      isAuthenticated: false,
       errorMessage: action.payload.errorMessage,
     };
   },

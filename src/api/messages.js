@@ -12,7 +12,7 @@ export function sendMessage(recipients, originator, body) {
     method: 'POST',
     body: JSON.stringify({
       recipients,
-      originator,
+      originator: MESSAGE_ORIGINATOR,
       body,
     }),
   });

@@ -11,13 +11,14 @@ export function authenticate(apikey) {
 
     try {
       await authApi.authenticate(apikey);
+
+      // Set in localstorage so we can access it from anywhere easily.
+      localStorage.setItem(API_KEY_STORAGE_KEY, apikey);
+
       dispatch({
         type: AUTHENTICATE_SUCCESS,
         payload: { apikey },
       });
-
-      // Set in localstorage so we can access it from anywhere easily.
-      localStorage.setItem(API_KEY_STORAGE_KEY, apikey);
     } catch (error) {
       dispatch({
         type: AUTHENTICATE_ERROR,
