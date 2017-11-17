@@ -37,6 +37,7 @@ const Label = styled.span`
 
 const Time = styled(TimeAgo)`
   font-size: 10px;
+  margin-left: ${prop('theme.spacing.1')};
   opacity: 0.8;
 `;
 
